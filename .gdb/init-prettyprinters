@@ -1,0 +1,12 @@
+# https://sourceware.org/gdb/wiki/STLSupport
+# https://github.com/ruediger/Boost-Pretty-Printer
+
+python
+import sys
+import os
+prefix=os.getenv("HOME")+"/.gdb/Boost-Pretty-Printer"
+print "loading prettyprinters from", prefix
+sys.path.insert(0, prefix)
+from boost.printers import register_printer_gen
+register_printer_gen(None)
+end
