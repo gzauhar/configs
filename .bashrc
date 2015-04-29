@@ -1,0 +1,11 @@
+if [ -f ~/.git-prompt.sh ]; then
+  source ~/.git-prompt.sh
+  GIT_PS1_SHOWCOLORHINTS=true     # Add colors to git prompt.
+  GIT_PS1_SHOWUNTRACKEDFILES=true # If there're untracked files, then a '%' will be shown next to the branch name.
+  GIT_PS1_SHOWSTASHSTATE=true     # If something is stashed, then a '$' will be shown next to the branch name.
+  GIT_PS1_SHOWDIRTYSTATE=true     # Unstaged (*) and staged (+) changes will be shown next to the branch name.
+  GIT_PS1_SHOWUPSTREAM=auto       # Difference between HEAD and its upstream. A "<" indicates you are behind, ">"
+                                  # indicates you are ahead, "<>" indicates you have diverged and "=" indicates that
+                                  # there is no difference.
+  PROMPT_COMMAND='__git_ps1 "\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]" "\\\$ " " \[\033[31m\](\[\033[00m\]%s\[\033[31m\])\[\033[00m\]"'
+fi
