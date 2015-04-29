@@ -1,3 +1,9 @@
+# User specific aliases and functions
+if [ -f ~/.bash_aliases ]; then
+  source ~/.bash_aliases
+fi
+
+# Enable git prompt
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
   GIT_PS1_SHOWCOLORHINTS=true     # Add colors to git prompt.
