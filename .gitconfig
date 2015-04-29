@@ -1,0 +1,46 @@
+[user]
+name = Goran Zauhar
+email = gzauhar@gmail.com
+
+[color]
+#branch = auto
+#diff = auto
+#pager = true
+#status = auto
+ui = auto       # Master switch for coloring. Git will automaticaly color most of its output.
+
+[color "status"]
+#added = green
+#changed = red
+untracked = cyan
+
+[color "branch"]
+#current = green
+#local = white
+#remote = magenta
+
+[alias]
+lol = log --graph --decorate --oneline
+lola = log --graph --decorate --oneline --all
+loll = log --graph --pretty=format:'%C(yellow)%h%Cred%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset'
+lolla = log --graph --pretty=format:'%C(yellow)%h%Cred%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --all
+#incoming = log master..origin/master
+#outgoing = log origin/master..master
+unstage = reset HEAD --
+ci = commit
+co = checkout
+st = status
+dt = difftool
+dts = difftool --staged
+
+[diff]
+tool = meld
+
+[difftool]
+prompt = false
+
+[merge]
+tool = meld
+
+[mergetool]
+prompt = false
