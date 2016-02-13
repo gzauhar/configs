@@ -20,27 +20,48 @@ untracked = cyan
 #remote = magenta
 
 [alias]
-lol = log --graph --decorate --oneline
-lola = log --graph --decorate --oneline --all
-loll = log --graph --pretty=format:'%C(yellow)%h%Cred%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset'
-lolla = log --graph --pretty=format:'%C(yellow)%h%Cred%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --all
-#incoming = log master..origin/master
-#outgoing = log origin/master..master
-unstage = reset HEAD --
-ci = commit
-co = checkout
-st = status
-dt = difftool
-dts = difftool --staged
+    lol = log --graph --decorate --oneline
+    lola = log --graph --decorate --oneline --all
+    loll = log --graph --pretty=format:'%C(yellow)%h%Cred%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset'
+    lolla = log --graph --pretty=format:'%C(yellow)%h%Cred%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --all
+    incoming = log master..origin/master
+    outgoing = log origin/master..master
+    unstage = reset HEAD --
+    br = branch
+    ci = commit
+    co = checkout
+    st = status
+    dt = difftool
+    ds = difftool --staged
+    mt = mergetool
 
 [diff]
-tool = meld
+    tool = meld
 
 [difftool]
-prompt = false
+    prompt = false
 
 [merge]
-tool = meld
+    tool = mymeld
+    conflictstyle = diff3
+[mergetool "mymeld"]
+    cmd = meld --diff $LOCAL $MERGED $REMOTE --diff $BASE $LOCAL --diff $BASE $REMOTE
 
 [mergetool]
-prompt = false
+    prompt = false
+
+[core]
+    #autocrlf = false # used when I did rebase of satsoft_migration branch onto master
+    autocrlf = input # Replace CRLF to LF when writing the file to object database, but do not do the reverse.
+    #safecrlf = true
+    editor = vim
+    #commentChar = %
+
+[commit]
+    template = ~/.gitcommitmessage
+
+[push]
+    default = simple
+
+[rebase]
+    autostash = true # Makes rebasing stash any dirty changes before running rebase, and then unstashes them afterwards.
